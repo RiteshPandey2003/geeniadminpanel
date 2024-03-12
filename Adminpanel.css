@@ -247,6 +247,12 @@ body {
     background-color: #a5aaad;
   }
   
+  .heading-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
   
   /* ---------- MEDIA QUERIES ---------- */
   
@@ -293,4 +299,67 @@ body {
         width: 100%;
     }
   }
+
   
+.edit-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  background-color: #ffffff;
+  padding: 25px;
+  box-sizing: border-box;
+  border: 1px solid #d2d2d3;
+  border-radius: 5px;
+  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px); 
+  z-index: 999; 
+}
+.input-feild{
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form label {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.edit-form input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #d2d2d3;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.edit-form button {
+  padding: 10px 15px;
+  background-color: #4f35a1;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.edit-form button:hover {
+  background-color: #5c479e;
+}
+
+/* Close Form Button */
+.close-form {
+  align-self: flex-end;
+  cursor: pointer;
+  font-size: 18px;
+  color: #666666;
+  margin-bottom: 10px;
+}
+
+.close-form:hover {
+  color: #000000;
+}
+

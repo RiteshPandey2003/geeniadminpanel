@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Admin Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="Adminpanel.css">
-    <link rel="stylesheet" href="list.css">
+    <link rel="stylesheet" href="Adminpanel.css" />
+    <link rel="stylesheet" href="list.css" />
   </head>
+
   <body>
     <div class="grid-container">
-        <header class="header">
-            <div class="menu-icon" onclick="openSidebar()">
-              <span class="material-icons-outlined">menu</span>
-            </div>
-            <div class="header-left">
-              <input type="search" placeholder="Search">
-              <span class="material-icons-outlined">search</span>
-            </div>
-          </header>
+      <header class="header">
+        <div class="menu-icon" onclick="openSidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="header-left">
+          <input type="search" placeholder="Search" />
+          <span class="material-icons-outlined">search</span>
+        </div>
+      </header>
       <!-- End Header -->
 
       <!-- Sidebar -->
@@ -30,7 +37,9 @@
           <div class="sidebar-brand">
             <span class="material-icons-outlined">inventory</span> GENNI
           </div>
-          <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+          <span class="material-icons-outlined" onclick="closeSidebar()"
+            >close</span
+          >
         </div>
 
         <ul class="sidebar-list">
@@ -51,25 +60,21 @@
           </li>
           <li class="sidebar-list-item">
             <a href="#" target="_blank">
-              <span class="material-icons-outlined">shopping_cart</span> sold coursees
+              <span class="material-icons-outlined">shopping_cart</span> sold
+              coursees
             </a>
           </li>
         </ul>
       </aside>
-      <!-- End Sidebar -->
-
-      <!-- Main -->
       <main class="main-container">
         <div class="main-title">
           <p class="font-weight-bold">DASHBOARD</p>
         </div>
 
         <div class="main-cards">
-
           <div class="card">
             <div class="card-inner">
               <p class="text-primary">COURSES</p>
-              <!-- <span class="material-icons-outlined text-blue">inventory_2</span> -->
             </div>
             <span class="text-primary font-weight-bold">249</span>
           </div>
@@ -77,7 +82,6 @@
           <div class="card">
             <div class="card-inner">
               <p class="text-primary">SOLD COURSES</p>
-              <!-- <span class="material-icons-outlined text-green">shopping_cart</span> -->
             </div>
             <span class="text-primary font-weight-bold">79</span>
           </div>
@@ -85,15 +89,12 @@
           <div class="card">
             <div class="card-inner">
               <p class="text-primary">TOTAL STUDENTS</p>
-              <!-- <span class="material-icons-outlined text-red">notification_important</span> -->
             </div>
             <span class="text-primary font-weight-bold">556</span>
           </div>
-
         </div>
 
         <div class="charts">
-
           <div class="charts-card">
             <p class="chart-title">Most Register Courses</p>
             <div id="bar-chart"></div>
@@ -103,61 +104,111 @@
             <p class="chart-title">top selling Months</p>
             <div id="area-chart"></div>
           </div>
-
         </div>
         <div class="list-container">
-            <p class="text-primary1">TOTAL STUDENTS</p>
-            <div class="list-header">
-              <div class="list-item">
-                <label>Name:</label>
-                <label>Father Name:</label>
-                <label>Course Enrolled:</label>
-                <label>Register Date:</label>
-                <label>Price of Course:</label>
-                <label>Address:</label>
-              </div>
-            </div>
-            <div class="list-item">
-              <span>John Doe</span>
-              <span>Michael Doe</span>
-              <span>Computer Science</span>
-              <span>2022-03-10</span>
-              <span>$500</span>
-              <span>123 Main Street, Cityville</span>
-            </div>
-          
-            <!-- Repeat the list items for additional students -->
-          
+          <div class="heading-section">
+            <p class="text-primary1">TOTAL Student</p>
+            <button onclick="openEditForm()">add</button>
           </div>
-          <div class="list-container">
-            <p class="text-primary1">TOTAL COURSES</p>
-            <div class="list-header">
-              <div class="list-item">
-                <label> Course Name:</label>
-                <label>Student Enrolled:</label>
-                <label>Price:</label>
-                <label>Instructor:</label>
-              </div>
-            </div>
+          <div class="list-header">
             <div class="list-item">
-              <span>English</span>
-              <span>2000</span>
-              <span>999</span>
-              <span>john</span>
+              <label>Name:</label>
+              <label>Course Enrolled:</label>
+              <label>Register Date:</label>
+              <label>Rollno</label>
+              <label>Edit</label>
+              <label>Remove</label>
             </div>
-          
-            <!-- Repeat the list items for additional students -->
-          
           </div>
+          <div class="list-item">
+            <span>John Doe</span>
+            <span>Computer Science</span>
+            <span>2022-03-10</span>
+            <span>500</span>
+            <span><button onclick="openEditForm()">Edit</button></span>
+            <span><button>Remove</button></span>
+          </div>
+        </div>
       </main>
-      <!-- End Main -->
-
     </div>
 
-    <!-- Scripts -->
-    <!-- ApexCharts -->
+    <!-- Add this HTML structure within your body tag -->
+    <div class="edit-form-container">
+      <div class="edit-form-wrapper">
+        <div class="edit-form" style="display: none">
+          <!-- Your form content goes here -->
+          <div class="input-feild">
+            <label for="edit-name">Name:</label>
+            <input type="text" id="edit-name" />
+          </div>
+
+          <div class="input-feild">
+            <label for="edit-course">Course Enrolled:</label>
+            <input type="text" id="edit-course" />
+          </div>
+
+          <div class="input-feild">
+            <label for="edit-date">Register Date:</label>
+            <input type="text" id="edit-date" />
+          </div>
+
+          <div class="input-feild">
+            <label for="edit-rollno">Rollno:</label>
+            <input type="text" id="edit-rollno" />
+          </div>
+
+          <button type="button" onclick="saveChanges()">Save Changes</button>
+          <span class="close-form" onclick="closeEditForm()">Close</span>
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
     <!-- Custom JS -->
     <script src="Adminpanel.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var hasFormBeenOpened = localStorage.getItem("formOpened");
+
+        if (!hasFormBeenOpened) {
+          openEditForm();
+          localStorage.setItem("formOpened", true);
+        }
+      });
+
+      function openEditForm() {
+        var name = document.querySelector(
+          ".list-item span:nth-child(1)"
+        ).textContent;
+        var course = document.querySelector(
+          ".list-item span:nth-child(2)"
+        ).textContent;
+        var date = document.querySelector(
+          ".list-item span:nth-child(3)"
+        ).textContent;
+        var rollno = document.querySelector(
+          ".list-item span:nth-child(4)"
+        ).textContent;
+
+        document.getElementById("edit-name").value = name;
+        document.getElementById("edit-course").value = course;
+        document.getElementById("edit-date").value = date;
+        document.getElementById("edit-rollno").value = rollno;
+
+        document.querySelector(".edit-form").style.display = "block";
+      }
+
+      function saveChanges() {
+        // Add your logic to save changes here
+        // You can retrieve the values from the form fields and update the student information
+
+        document.querySelector(".edit-form").style.display = "none";
+      }
+
+      function closeEditForm() {
+        // Code to close the edit form goes here
+        document.querySelector(".edit-form").style.display = "none";
+      }
+    </script>
   </body>
 </html>
