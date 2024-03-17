@@ -15,7 +15,6 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="Adminpanel.css" />
-    <link rel="stylesheet" href="list.css" />
   </head>
 
   <body>
@@ -45,27 +44,27 @@
         <ul class="sidebar-list">
           <li class="sidebar-list-item">
             <a href="#" target="_blank">
-              <span class="material-icons-outlined">dashboard</span> Dashboard
+               Dashboard
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
-              <span class="material-icons-outlined">inventory_2</span>Courses
+            <a href="#course-list" target="_blank">
+              Courses
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="Studentlist.html" target="_blank">
-              <span class="material-icons-outlined">fact_check</span>Students
+            <a href="#student-list" target="_blank">
+              Students
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
-              <span class="material-icons-outlined">shopping_cart</span> sold
-              coursees
+            <a href="login.html" target="_blank">
+              login
             </a>
           </li>
         </ul>
       </aside>
+
       <main class="main-container">
         <div class="main-title">
           <p class="font-weight-bold">DASHBOARD</p>
@@ -81,7 +80,7 @@
 
           <div class="card">
             <div class="card-inner">
-              <p class="text-primary">SOLD COURSES</p>
+              <p class="text-primary">BRANCHES</p>
             </div>
             <span class="text-primary font-weight-bold">79</span>
           </div>
@@ -105,28 +104,93 @@
             <div id="area-chart"></div>
           </div>
         </div>
-        <div class="list-container">
+        
+
+        <!-- Student and Branch -->
+        <div class="list-container student-list">
           <div class="heading-section">
-            <p class="text-primary1">TOTAL Student</p>
-            <button onclick="openEditForm()">add</button>
-          </div>
-          <div class="list-header">
-            <div class="list-item">
-              <label>Name:</label>
-              <label>Course Enrolled:</label>
-              <label>Register Date:</label>
-              <label>Rollno</label>
-              <label>Edit</label>
-              <label>Remove</label>
-            </div>
+            <p class="text-primary1">Students Details</p>
           </div>
           <div class="list-item">
-            <span>John Doe</span>
-            <span>Computer Science</span>
-            <span>2022-03-10</span>
-            <span>500</span>
-            <span><button onclick="openEditForm()">Edit</button></span>
-            <span><button>Remove</button></span>
+            <input type="text" id="name " placeholder="Enter name" />
+            <input type="text" id="regno " placeholder="Reg no" />
+            <input type="text" id="so " placeholder="Enter S/o" />
+            <input type="text" id="course " placeholder="Enter course" />
+            <input
+              type="text"
+              id="time-period"
+              placeholder="Enter time period"
+            />
+            <input type="text" id="branch" placeholder="Branch-details"  onclick=" openBranchForm()" />
+            <button class="Add-button">Add</button>
+          </div>
+
+          <div class="list-item1">
+            <p>Ram</p>
+            <p>12345</p>
+            <p>Raj Kiram</p>
+            <p>English</p>
+            <p>3-months</p>
+            <select id="branch">
+              <option value="Branch-details">Branch-details</option>
+              <option value="Branch-Name">Hyderabad</option>
+              <option value="Branch-Address">231, Hyderabad</option>
+              <option value="Branch-Contact">898989898</option>
+              <option value="Branch-Head">Nrendera</option>
+              <option value="Head-Image">image.jpg</option>
+            </select>
+            <button class="Add-button1">edit</button>
+            <button class="Add-button1">remove</button>
+          </div>
+
+          <div class="list-item1">
+            <p>Ram</p>
+            <p>12345</p>
+            <p>Raj Kiram</p>
+            <p>English</p>
+            <p>3-months</p>
+            <select id="branch">
+              <option value="Branch-details" class="option">Branch-details</option>
+              <option value="Branch-Name" class="option">Hyderabad</option>
+              <option value="Branch-Address" class="option">231, Hyderabad</option>
+              <option value="Branch-Contact" class="option">898989898</option>
+              <option value="Branch-Head" class="option">Nrendera</option>
+              <option value="Head-Image" class="option">image.jpg</option>
+            </select>
+            <button  class="Add-button1">edit</button>
+            <button  class="Add-button1">remove</button>
+          </div>
+        </div>
+
+        <!-- Course and Category -->
+        <div class="list-container course-list">
+          <div class="heading-section">
+            <p class="text-primary1">Course Details</p>
+          </div>
+          <div class="list-item">
+            <input type="text" id="name " placeholder="Name" />
+            <input type="text" id="fees " placeholder="Fees" />
+            <input type="text" id="image" placeholder="Image" />
+            <input type="text" id="course-duration" placeholder="Course Duration" />
+            <input type="text" id="description" placeholder="Description" />
+            <input type="text" id="category" placeholder="Category"  onclick="opencategoryForm()" />
+            <button class="Add-button">Add</button>
+          </div>
+
+          <div class="list-item1">
+            <p>Ram</p>
+            <p>12345</p>
+            <p>image.jpg</p>
+            <p>8-months</p>
+            <p>English course with 8k students</p>
+            <select id="branch">
+              <option value="Branch-details" class="option">Category</option>
+              <option value="Branch-Name" class="option">Name</option>
+              <option value="Branch-Address" class="option">Slogan</option>
+              <option value="Branch-Contact" class="option">Feature Image</option>
+            </select>
+            <button  class="Add-button1">edit</button>
+            <button  class="Add-button1">remove</button>
           </div>
         </div>
       </main>
@@ -136,29 +200,51 @@
     <div class="edit-form-container">
       <div class="edit-form-wrapper">
         <div class="edit-form" style="display: none">
-          <!-- Your form content goes here -->
-          <div class="input-feild">
-            <label for="edit-name">Name:</label>
+          <!-- Your branch form content goes here -->
+          <div class="input-field">
+            <label for="edit-name">Branch-Name:</label>
             <input type="text" id="edit-name" />
           </div>
-
-          <div class="input-feild">
-            <label for="edit-course">Course Enrolled:</label>
+          <div class="input-field">
+            <label for="edit-course">Head-Name:</label>
             <input type="text" id="edit-course" />
           </div>
-
-          <div class="input-feild">
-            <label for="edit-date">Register Date:</label>
-            <input type="text" id="edit-date" />
+          <div class="input-field">
+            <label for="edit-date">Head-image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
           </div>
-
-          <div class="input-feild">
-            <label for="edit-rollno">Rollno:</label>
+          <div class="input-field">
+            <label for="edit-rollno">Contact:</label>
             <input type="text" id="edit-rollno" />
           </div>
-
+          <div class="input-field">
+            <label for="edit-address">Address:</label>
+            <input type="text" id="edit-address" />
+          </div>
+          <div class="input-field">
+            <label for="edit-email">Email:</label>
+            <input type="text" id="edit-email" />
+          </div>
           <button type="button" onclick="saveChanges()">Save Changes</button>
-          <span class="close-form" onclick="closeEditForm()">Close</span>
+          <span class="close-form" onclick="closeBranchForm()">Close</span>
+        </div>
+
+        <!-- Your category form content goes here -->
+        <div class="edit-form" style="display: none">
+          <div class="input-field">
+            <label for="edit-category-name">Category Name:</label>
+            <input type="text" id="edit-category-name" />
+          </div>
+          <div class="input-field">
+            <label for="edit-category-slogan">Slogan:</label>
+            <input type="text" id="edit-category-slogan" />
+          </div>
+          <div class="input-field">
+            <label for="edit-category-image">Feature Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+          </div>
+          <button type="button" onclick="saveChanges()">Save Changes</button>
+          <span class="close-form" onclick="closeCategoryForm()">Close</span>
         </div>
       </div>
     </div>
@@ -167,48 +253,33 @@
     <!-- Custom JS -->
     <script src="Adminpanel.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var hasFormBeenOpened = localStorage.getItem("formOpened");
+  document.addEventListener("DOMContentLoaded", function () {
+    var hasFormBeenOpened = localStorage.getItem("formOpened");
+    if (!hasFormBeenOpened) {
+      openBranchForm();
+      localStorage.setItem("formOpened", true);
+    }
+  });
 
-        if (!hasFormBeenOpened) {
-          openEditForm();
-          localStorage.setItem("formOpened", true);
-        }
-      });
+  function openBranchForm() {
+    document.querySelector(".edit-form:nth-of-type(1)").style.display = "block";
+  }
 
-      function openEditForm() {
-        var name = document.querySelector(
-          ".list-item span:nth-child(1)"
-        ).textContent;
-        var course = document.querySelector(
-          ".list-item span:nth-child(2)"
-        ).textContent;
-        var date = document.querySelector(
-          ".list-item span:nth-child(3)"
-        ).textContent;
-        var rollno = document.querySelector(
-          ".list-item span:nth-child(4)"
-        ).textContent;
+  function opencategoryForm() {
+    document.querySelector(".edit-form:nth-of-type(2)").style.display = "block";
+  }
 
-        document.getElementById("edit-name").value = name;
-        document.getElementById("edit-course").value = course;
-        document.getElementById("edit-date").value = date;
-        document.getElementById("edit-rollno").value = rollno;
+  function saveChanges() {
+    document.querySelector(".edit-form:visible").style.display = "none";
+  }
 
-        document.querySelector(".edit-form").style.display = "block";
-      }
+  function closeBranchForm() {
+    document.querySelector(".edit-form:nth-of-type(1)").style.display = "none";
+  }
 
-      function saveChanges() {
-        // Add your logic to save changes here
-        // You can retrieve the values from the form fields and update the student information
-
-        document.querySelector(".edit-form").style.display = "none";
-      }
-
-      function closeEditForm() {
-        // Code to close the edit form goes here
-        document.querySelector(".edit-form").style.display = "none";
-      }
-    </script>
+  function closeCategoryForm() {
+    document.querySelector(".edit-form:nth-of-type(2)").style.display = "none";
+  }
+</script>
   </body>
 </html>
