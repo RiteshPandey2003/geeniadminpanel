@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>category</title>
+    <link rel="stylesheet" href="editform.css" />
+  </head>
+  <body>
+    <div class="chat-container">
+      <h1 class="logo">GENNI</h1>
+      <div class="chat-body">
+        <div class="message">
+          <label for="username">Course Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="message">
+          <label for="fees">Fees</label>
+          <input type="text" id="fees" name="fees" required />
+        </div>
+
+        <div class="message">
+          <label for="course-duration">course-duration</label>
+          <input
+            type="text"
+            id="course-duration"
+            name="course-duration"
+            required
+          />
+        </div>
+
+        <div class="message">
+          <label for="image">image:</label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            required
+          />
+        </div>
+
+        <div class="message">
+          <label for="Discription">Discription:</label>
+          <input type="text" id="Discription" name="Discription" required />
+        </div>
+
+        <div class="message">
+          <div class="category-box">
+            <label for="categoryName">category Name:</label
+            ><a href="editcategory.html"
+              ><button class="edit-category-btn">edit</button></a
+            >
+          </div>
+          <select class="option-box">
+            <option>Select-category</option>
+            <option>Aerospace</option>
+            <option>Computer Science</option>
+            <option>Humanity</option>
+          </select>
+        </div>
+      </div>
+      <div class="chat-footer">
+        <!-- Add any additional content or buttons here -->
+        <button class="send-button" type="submit">save Changes</button>
+      </div>
+      <a href="index.html" class="link">back to Dashbord</a>
+    </div>
+  </body>
+</html>
