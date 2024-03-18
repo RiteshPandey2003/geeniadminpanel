@@ -75,6 +75,14 @@ body {
      text-decoration: underline;
      color: black;
   }
+  .logo{
+    color: white;
+    background: #212121;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    padding: 0.2rem 0.5rem;
+  }
 
   @media (max-width: 600px) {
     .chat-container {
