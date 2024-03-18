@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="list.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+</head>
+<body>
+  <!-- category -->
+  <div class="list-container student-list">
+    <a href="index.html" class="back-link">Dashboard</a>
+    <div class="heading-section">
+      <p class="text-primary1">Category Details</p>
+      <button onclick="opencategoryForm('category')">update</button>
+    </div>
+    <div class="list-box">
+      <div class="list-item">
+
+        <p>Category Name</p>
+        <p>Slogan</p>
+        <p>Featured Image</p>
+
+        <button class="Add-button1">update</button>
+        <button class="Add-button1">remove</button>
+      </div>
+
+      <div class="list-item1">
+        <p>Areospace</p>
+        <p>this is best for you</p>
+        <p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVGD4mySV7ZqD6mF27LQToijGDpqFCfTocJQ&usqp=CAU"></p>
+        <button class="Add-button1"><a href="editcategory.html">update</a></button>
+        <button class="Add-button1">remove</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- course -->
+  <div class="list-container student-list">
+    <div class="heading-section">
+      <p class="text-primary1">Course Details</p>
+      <button onclick="opencourseForm('course')">update</button>
+    </div>
+    <div class="list-box">
+      <div class="list-item">
+        <p>Name</p>
+        <p>Fees</p>
+        <p>Course Duration</p>
+        <p>Category</p>
+        <p>Discription</p>
+
+        <button class="Add-button1">update</button>
+        <button class="Add-button1">remove</button>
+      </div>
+
+      <div class="list-item1">
+        <p>English</p>
+        <p>999</p>
+        <p>3 months</p>
+        <p>Computer Science</p>
+        <p>course contain enlish lecture ny narendra reddy</p>
+
+        <button class="Add-button1"><a href="courseEdit.html">update</a></button>
+        <button class="Add-button1">remove</button>
+      </div>
+    </div>
+  </div>
+
+   <!-- category from -->
+   <div class="edit-form" id="category-form" style="display: none">
+    <div class="input-field">
+      <label for="edit-category-name">Category Name:</label>
+      <input type="text" id="edit-course-name" />
+    </div>
+    <div class="input-field">
+      <label for="edit-slogan">slogan:</label>
+      <input type="text" id="edit-slogan" />
+    </div>
+    <div class="input-field">
+      <label for="edit-course-fee">Feature Image:</label>
+      <input type="file" id="image" name="image" accept="image/*" required />
+    </div>
+    <button type="button" onclick="saveChanges('category')">Save Changes</button>
+    <span class="close-form" onclick="closeForm('category')">Close</span>
+  </div>
+
+
+  <!-- course form -->
+  <div class="edit-form" id="course-form" style="display: none">
+    <div class="input-field">
+      <label for="edit-course-name"> Name:</label>
+      <input type="text" id="edit-course-name" />
+    </div>
+    <div class="input-field">
+      <label for="edit-course-discritpion">Discription:</label>
+      <input type="text" id="edit-course-discritpion" />
+    </div>
+    <div class="input-field">
+      <label for="edit-course-fee">Feature Image:</label>
+      <input type="text" id="course-fees" name="fees" required />
+    </div>
+    <div class="input-field">
+      <label for="edit-course-fee">Category:</label>
+      <select class="option-box">
+        <option>Select-category</option>
+        <option>Computer Science</option>
+        <option>Aerospace Engineering</option>
+      </select>
+    </div>
+    <div class="input-field">
+      <label for="edit-course-fee">Feature Image:</label>
+      <input type="file" id="image" name="image" accept="image/*" required />
+    </div>
+    <button type="button" onclick="saveChanges('course')">Save Changes</button>
+    <span class="close-form" onclick="closeForm('course')">Close</span>
+  </div>
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var hasFormBeenOpened = localStorage.getItem("formOpened");
+      if (!hasFormBeenOpened) {
+        opencategoryForm('category'); // Corrected function name
+        localStorage.setItem("formOpened", true);
+      }
+    });
+
+    function opencategoryForm(formType) {
+      if (formType === 'category') {
+        document.getElementById("category-form").style.display = "block";
+      }
+    }
+
+    function opencourseForm(formType) {
+      if (formType === 'course') {
+        document.getElementById("course-form").style.display = "block";
+      }
+    }
+
+    function saveChanges(formType) {
+      if (formType === 'category') {
+        var visibleForm = document.getElementById("category-form");
+      } else {
+        var visibleForm = document.getElementById("course-form");
+      }
+      if (visibleForm) {
+        visibleForm.style.display = "none";
+      }
+    }
+
+    function closeForm(formType) {
+      if (formType === 'category') {
+        document.getElementById("category-form").style.display = "none";
+      } else {
+        document.getElementById("course-form").style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>

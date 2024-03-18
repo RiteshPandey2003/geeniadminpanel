@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="list.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <!-- course list -->
+    <div class="list-container student-list">
+      <a href="index.html" class="back-link">Dashboard</a>
+        <div class="heading-section">
+          <p class="text-primary1">Students Details</p>
+          <button onclick="openStudentForm()">add +</button>
+        </div>
+        <div class="list-box">
+          <div class="list-item">
+            <p>Name</p>
+            <p>Reg no</p>
+            <p>S/O</p>
+            <p>Course</p>
+            <p>Branch</p>
+            <p>Ceritficate Issue</p>
+            <button class="Add-button1">update</button>
+            <button class="Add-button1">remove</button>
+          </div>
+
+          <div class="list-item1">
+            <p>Ram</p>
+            <p>12345</p>
+            <p>Raj Kiram</p>
+            <p>English</p>
+            <p>Hyderabad</p>
+            <p>13-jan-2022</p>
+            <button class="Add-button1"><a href="studentEdit.html">update</a></button>
+            <button class="Add-button1">remove</button>
+          </div>
+        </div>
+    </div>
+
+    <!-- student form -->
+    <div class="edit-form" style="display: none">
+        <div class="input-field">
+          <label for="student-name">Student Name:</label>
+          <input type="text" id="student-name" />
+        </div>
+        <div class="input-field">
+          <label for="student-regno">Registration No:</label>
+          <input type="text" id="student-regno" />
+        </div>
+        <div class="input-field">
+          <label for="student-so">S/O:</label>
+          <input type="text" id="student-so" />
+        </div>
+        <div class="input-field">
+          <label for="student-course">Course:</label>
+          <input type="text" id="student-course" />
+        </div>
+        <div class="input-field">
+          <label for="student-branch">Branch:</label>
+          <input type="text" id="student-branch" />
+        </div>
+        <div class="input-field">
+          <label for="certificate-issue">Certificate Issue Date:</label>
+          <input type="text" id="certificate-issue" />
+        </div>
+        <button type="button" onclick="saveChanges()">Save Changes</button>
+        <span class="close-form" onclick="closeStudentForm()">Close</span>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          var hasFormBeenOpened = localStorage.getItem("formOpened");
+          if (!hasFormBeenOpened) {
+            openStudentForm(); // Corrected function name
+            localStorage.setItem("formOpened", true);
+          }
+        });
+
+        function openStudentForm() {
+          document.querySelector(".edit-form").style.display = "block";
+        }
+  
+        function saveChanges() {
+          document.querySelector(".edit-form").style.display = "none";
+        }
+  
+        function closeStudentForm() {
+          document.querySelector(".edit-form").style.display = "none";
+        }
+    </script>
+</body>
+</html>

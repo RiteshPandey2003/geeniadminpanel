@@ -1,0 +1,318 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: #e6e8ed;
+    color: #666666;
+    font-family: "Montserrat", sans-serif;
+}
+
+.edit-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: #ffffff;
+    padding: 25px;
+    box-sizing: border-box;
+    border: 1px solid #d2d2d3;
+    border-radius: 5px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+}
+
+.input-feild {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-form label {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.edit-form input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #d2d2d3;
+    border-radius: 5px;
+    font-size: 16px;
+    width: fit-content;
+    width: 95%;
+    margin: 1rem 0;
+}
+
+.edit-form button {
+    padding: 10px 15px;
+    background-color: #191919;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.edit-form button:hover {
+    background-color: #ffffff;
+    color: black;
+}
+
+/* Close Form Button */
+.close-form {
+    align-self: flex-end;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666666;
+    margin-bottom: 10px;
+}
+
+.close-form:hover {
+    color: #000000;
+}
+
+
+
+
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align items to the start of the cross axis */
+    gap: 10px;
+    width: 100%;
+    /* Add some space between elements */
+}
+
+.list-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+}
+
+.list-item p,
+.list-item select {
+    flex: 1;
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 5px;
+    min-width: 100px;
+    font-weight: 800;
+}
+
+.list-item1 p,
+.list-item1 select {
+    flex: 1;
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-weight: 400;
+    border: none;
+    background: none;
+    word-wrap: break-word;
+}
+
+
+
+.list-item label {
+    flex: 1;
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 5px;
+    min-width: 100px;
+}
+
+.list-item1 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-weight: 400;
+}
+
+.list-box {
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.list-item1 p {
+    flex: 1;
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 5px;
+    min-width: 100px;
+    color: black;
+}
+
+.list-item button {
+    padding: 8px 15px;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: none;
+}
+
+.list-item1 button {
+    padding: 8px 15px;
+    background-color: rgb(255, 253, 253);
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    border: 0.2px solid black
+}
+
+
+.Add-button1 {
+    flex: 0.42;
+}
+
+
+.material-icons-outlined {
+    vertical-align: middle;
+}
+
+.text-primary1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+
+.heading-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border-bottom: 1px solid gray;
+
+}
+
+.heading-section button {
+    padding: 8px 3rem;
+    background-color: rgb(58, 56, 56);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+.option-box {
+    padding: 0.7rem 0.2rem;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    width: 97%;
+    border: 0.5px solid gray;
+}
+.list-item1 img{
+    height: 50px;
+    width: 50px;
+}
+
+@media (max-width : 800px) {
+    .edit-form {
+        width: 80%;
+        font-size: 0.7rem
+    }
+
+    .edit-form input {
+        padding: 0;
+        margin: 0.5rem 0;
+    }
+
+    .edit-form label {
+        font-size: 0.7rem;
+    }
+
+    .edit-form button {
+        font-size: 1rem;
+        padding: 0.2rem 0.5rem;
+        font-weight: 400;
+        margin-top: 1rem;
+    }
+
+    .list-item1 p,
+    .list-item1 select {
+        font-size: 0.7rem;
+    }
+
+    .list-item p,
+    .list-item select {
+        font-size: 0.7rem;
+    }
+
+    .list-item1 button {
+        font-size: 0.7rem;
+    }
+
+    .list-item button {
+        font-size: 0.7rem;
+    }
+
+    .text-primary1 {
+        font-size: 1rem;
+        padding-left: 0.2rem;
+    }
+
+    .heading-section button {
+        font-size: 0.7rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .heading-section {
+        padding: 0;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #a5aaad;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #1c1c1c;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a5aaad;
+}
+
+.back-link{
+    padding: 1rem 2rem;
+    background: black;
+    color: white;
+    margin: 1rem;
+}

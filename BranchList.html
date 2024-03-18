@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="list.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+</head>
+<body>
+
+    <div class="list-container student-list">
+      <a href="index.html" class="back-link">Dashboard</a>
+        <div class="heading-section">
+          <p class="text-primary1">Branch Details</p>
+          <button onclick="openBranchForm();">add +</button>
+        </div>
+        <div class="list-box">
+          <div class="list-item">
+            <p>Head Name</p>
+            <p>Branch Name</p>
+            <p>Branch Contact</p>
+            <p>Branch Email</p>
+            <p>Branch Address</p>
+            <button class="Add-button1">update</button>
+            <button class="Add-button1">remove</button>
+          </div>
+
+          <div class="list-item1">
+            <p>Narendra</p>
+            <p>Hyderabad Branch</p>
+            <p>7979781510</p>
+            <p>mr.reddy@gamil.com</p>
+            <p>bassireddy, pulvindual, AP</p>
+
+            <button class="Add-button1"><a href="studentEdit.html" >update</a></button>
+            <button class="Add-button1">remove</button>
+          </div>
+        </div>
+      </div>
+  
+     <!-- form -->
+    <div class="edit-form" style="display: none">
+        <!-- Your branch form content goes here -->
+        <div class="input-field">
+          <label for="edit-name">Branch-Name:</label>
+          <input type="text" id="edit-name" />
+        </div>
+        <div class="input-field">
+          <label for="edit-course">Head-Name:</label>
+          <input type="text" id="edit-course" />
+        </div>
+        <div class="input-field">
+          <label for="edit-date">Head-image:</label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            required
+          />
+        </div>
+        <div class="input-field">
+          <label for="edit-rollno">Contact:</label>
+          <input type="text" id="edit-rollno" />
+        </div>
+        <div class="input-field">
+          <label for="edit-address">Address:</label>
+          <input type="text" id="edit-address" />
+        </div>
+        <div class="input-field">
+          <label for="edit-email">Email:</label>
+          <input type="text" id="edit-email" />
+        </div>
+        <button type="button" onclick="saveChanges()">Save Changes</button>
+        <span class="close-form" onclick="closeBranchForm()">Close</span>
+      </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          var hasFormBeenOpened = localStorage.getItem("formOpened");
+          if (!hasFormBeenOpened) {
+            openBranchForm();
+            localStorage.setItem("formOpened", true);
+          }
+        });
+  
+        function openBranchForm() {
+          document.querySelector(".edit-form").style.display =
+            "block";
+        }
+  
+        function saveChanges() {
+          document.querySelector(".edit-form:visible").style.display = "none";
+        }
+  
+        function closeBranchForm() {
+          document.querySelector(".edit-form").style.display =
+            "none";
+        }
+      </script>
+
+</body>
+</html>
