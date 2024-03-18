@@ -1,66 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>category</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Adminpanel.css" />
     <link rel="stylesheet" href="editform.css" />
   </head>
+
   <body>
-    <div class="chat-container">
-      <h1 class="logo">GENNI</h1>
-      <div class="chat-body">
-        <div class="message">
-          <label for="username">Course Name:</label>
-          <input type="text" id="name" name="name" required />
+    <div class="grid-container">
+      <header class="header">
+        <div class="menu-icon" onclick="openSidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="header-left">
+          <input type="search" placeholder="Search" />
+          <span class="material-icons-outlined">search</span>
+        </div>
+      </header>
+      <!-- End Header -->
+
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <span class="material-icons-outlined">inventory</span> GENNI
+          </div>
+          <span class="material-icons-outlined" onclick="closeSidebar()"
+            >close</span
+          >
         </div>
 
-        <div class="message">
-          <label for="fees">Fees</label>
-          <input type="text" id="fees" name="fees" required />
-        </div>
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank"> Dashboard </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="login.html" target="_blank"> login </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="studentlist.html" target="_blank"> Students </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="CourseList.html" target="_blank"> Courses </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="BranchList.html" target="_blank"> Bracnhes </a>
+          </li>
+        </ul>
+      </aside>
 
-        <div class="message">
-          <label for="course-duration">course-duration</label>
-          <input
-            type="text"
-            id="course-duration"
-            name="course-duration"
-            required
-          />
-        </div>
-
-        <div class="message">
-          <label for="image">image:</label>
-          <input
-            type="file"
-            id="image"
-            name="image"
-            accept="image/*"
-            required
-          />
-        </div>
-
-        <div class="message">
-          <label for="Discription">Discription:</label>
-          <input type="text" id="Discription" name="Discription" required />
-        </div>
-
-        <div class="message">
-          <label for="categoryName">category Name:</label>
-          <select class="option-box">
-            <option>Select-category</option>
-            <option>Aerospace</option>
-            <option>Computer Science</option>
-            <option>Humanity</option>
-          </select>
-        </div>
-      </div>
-      <div class="chat-footer">
-        <!-- Add any additional content or buttons here -->
-        <button class="send-button" type="submit">save Changes</button>
-      </div>
-      <a href="index.html" class="link">back to Dashbord</a>
+      <main class="main-container">
+        <div class="chat-container">
+            <h1 class="logo">GENNI</h1>
+            <div class="chat-body">
+              <div class="message">
+                <label for="username">Course Name:</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+      
+              <div class="message">
+                <label for="fees">Fees</label>
+                <input type="text" id="fees" name="fees" required />
+              </div>
+      
+              <div class="message">
+                <label for="course-duration">course-duration</label>
+                <input
+                  type="text"
+                  id="course-duration"
+                  name="course-duration"
+                  required
+                />
+              </div>
+      
+              <div class="message">
+                <label for="image">image:</label>
+                <input
+                  type="file"
+                  id="image"
+                  name="image"
+                  accept="image/*"
+                  required
+                />
+              </div>
+      
+              <div class="message">
+                <label for="Discription">Discription:</label>
+                <input type="text" id="Discription" name="Discription" required />
+              </div>
+      
+              <div class="message">
+                <label for="categoryName">category Name:</label>
+                <select class="option-box">
+                  <option>Select-category</option>
+                  <option>Aerospace</option>
+                  <option>Computer Science</option>
+                  <option>Humanity</option>
+                </select>
+              </div>
+            </div>
+            <div class="chat-footer">
+              <!-- Add any additional content or buttons here -->
+              <button class="send-button" type="submit">save Changes</button>
+            </div>
+            <a href="index.html" class="link">back to Dashbord</a>
+          </div>
+      </main>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+    <!-- Custom JS -->
+    <script src="Adminpanel.js"></script>
   </body>
 </html>

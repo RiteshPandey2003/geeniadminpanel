@@ -1,15 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="list.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
-</head>
-<body>
-  <!-- category -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Adminpanel.css" />
+    <link rel="stylesheet" href="list.css" />
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <header class="header">
+        <div class="menu-icon" onclick="openSidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="header-left">
+          <input type="search" placeholder="Search" />
+          <span class="material-icons-outlined">search</span>
+        </div>
+      </header>
+      <!-- End Header -->
+
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <span class="material-icons-outlined">inventory</span> GENNI
+          </div>
+          <span class="material-icons-outlined" onclick="closeSidebar()"
+            >close</span
+          >
+        </div>
+
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank"> Dashboard </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="login.html" target="_blank"> login </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="studentlist.html" target="_blank"> Students </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="CourseList.html" target="_blank"> Courses </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="BranchList.html" target="_blank"> Bracnhes </a>
+          </li>
+        </ul>
+      </aside>
+
+      <main class="main-container">
+        <!-- course list -->
+     <!-- category -->
   <div class="list-container student-list">
     <a href="index.html" class="back-link">Dashboard</a>
     <div class="heading-section">
@@ -117,48 +171,48 @@
     <span class="close-form" onclick="closeForm('course')">Close</span>
   </div>
 
-
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var hasFormBeenOpened = localStorage.getItem("formOpened");
-      if (!hasFormBeenOpened) {
-        opencategoryForm('category'); // Corrected function name
-        localStorage.setItem("formOpened", true);
-      }
-    });
-
-    function opencategoryForm(formType) {
-      if (formType === 'category') {
-        document.getElementById("category-form").style.display = "block";
-      }
-    }
-
-    function opencourseForm(formType) {
-      if (formType === 'course') {
-        document.getElementById("course-form").style.display = "block";
-      }
-    }
-
-    function saveChanges(formType) {
-      if (formType === 'category') {
-        var visibleForm = document.getElementById("category-form");
-      } else {
-        var visibleForm = document.getElementById("course-form");
-      }
-      if (visibleForm) {
-        visibleForm.style.display = "none";
-      }
-    }
-
-    function closeForm(formType) {
-      if (formType === 'category') {
-        document.getElementById("category-form").style.display = "none";
-      } else {
-        document.getElementById("course-form").style.display = "none";
-      }
-    }
-  </script>
-
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+    <!-- Custom JS -->
+    <script src="Adminpanel.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          var hasFormBeenOpened = localStorage.getItem("formOpened");
+          if (!hasFormBeenOpened) {
+            opencategoryForm('category'); // Corrected function name
+            localStorage.setItem("formOpened", true);
+          }
+        });
+    
+        function opencategoryForm(formType) {
+          if (formType === 'category') {
+            document.getElementById("category-form").style.display = "block";
+          }
+        }
+    
+        function opencourseForm(formType) {
+          if (formType === 'course') {
+            document.getElementById("course-form").style.display = "block";
+          }
+        }
+    
+        function saveChanges(formType) {
+          if (formType === 'category') {
+            var visibleForm = document.getElementById("category-form");
+          } else {
+            var visibleForm = document.getElementById("course-form");
+          }
+          if (visibleForm) {
+            visibleForm.style.display = "none";
+          }
+        }
+    
+        function closeForm(formType) {
+          if (formType === 'category') {
+            document.getElementById("category-form").style.display = "none";
+          } else {
+            document.getElementById("course-form").style.display = "none";
+          }
+        }
+      </script>
+  </body>
 </html>
