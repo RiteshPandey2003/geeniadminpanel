@@ -64,6 +64,10 @@ body {
 .menu-icon {
   display: none;
 }
+.search-box{
+  padding: 0.5rem;
+  width: 500px;
+}
 
 
 /* ---------- SIDEBAR ---------- */
@@ -281,6 +285,10 @@ body {
   }
 
   .main-container {
+    padding: 0;
+  }
+  .search-box{
+    width: 120px;
     padding: 0;
   }
 }

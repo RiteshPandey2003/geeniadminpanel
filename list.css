@@ -174,12 +174,13 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 0.5rem;
-    border: 0.2px solid black
+    margin-right: 1rem;
+    border: 0.2px solid black;
+    
 }
 
 
-.Add-button1 {
+.Add-button1 a{
     flex: 0.42;
 }
 
@@ -225,6 +226,10 @@ body {
 .list-item1 img{
     height: 50px;
     width: 50px;
+}
+.search-box{
+    padding: 0.5rem;
+    width: 500px;
 }
 
 @media (max-width : 800px) {
@@ -279,6 +284,10 @@ body {
 
     .heading-section {
         padding: 0;
+    }
+    .search-box{
+        padding: 0rem;
+        width: 120px;
     }
 }
 

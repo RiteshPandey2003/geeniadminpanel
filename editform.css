@@ -1,128 +1,143 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
 
 
 
 .chat-container {
   width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.chat-body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 40%;
+  border: 1px solid lightgray;
+}
+
+.message {
+  flex-basis: 45%;
+  margin-bottom: 20px;
+}
+
+.chat-footer {
+  margin-top: 20px;
+}
+
+
+.chat-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  flex-direction: column;
+}
+
+.message {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.message label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+  /* Increased label font size */
+}
+
+.message input {
+  width: 100%;
+  padding: 10px;
+  /* Increased input padding */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  /* Increased input font size */
+}
+
+.chat-footer {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.send-button {
+  background-color: #1a1e2a;
+  color: #fff;
+  padding: 12px 24px;
+  /* Increased button padding */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1em;
+  /* Increased button font size */
+  width: 100%;
+}
+
+.send-button:hover {
+  background-color: #ffffff;
+  color: #1a1e2a;
+}
+.search-box{
+  padding: 0.5rem;
+  width: 500px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-decoration: underline;
+  color: black;
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .chat-container {
+    width: 90%;
   }
 
   .chat-body {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 50%; 
+    flex-direction: column;
   }
+}
 
-  .message {
-    flex-basis: 45%; 
-    margin-bottom: 20px;
-  }
+.option-box {
+  padding: 0.7rem 0.2rem;
+  display: flex;
+  flex-direction: column;
+  width: 97%;
+  border: 0.5px solid gray;
+}
 
-  .chat-footer {
-    margin-top: 20px;
-  }
+.category-box button {
+  margin: 0.2rem 0.5rem;
+  background: black;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  width: 100%;
+}
 
-
+@media (max-width : 800px) {
   .chat-body {
-    flex: 1;
-    overflow-y: auto;
-    padding: 20px;
-    flex-direction: column;
+    width: 90%;
   }
-
-  .message {
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  .search-box{
+    padding: 0rem;
+    width: 120px;
   }
-
-  .message label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    font-size: 1.1em; /* Increased label font size */
-  }
-
-  .message input {
-    width: 100%;
-    padding: 10px; /* Increased input padding */
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1em; /* Increased input font size */
-  }
-
-  .chat-footer {
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .send-button {
-    background-color: #1a1e2a;
-    color: #fff;
-    padding: 12px 24px; /* Increased button padding */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1.1em; /* Increased button font size */
-    width: 100%;
-  }
-
-  .send-button:hover {
-    background-color: #ffffff;
-    color: #1a1e2a;
-  }
-  a{
-    text-decoration: none;
-     font-size: 1.2rem;
-     text-decoration: underline;
-     color: black;
-     text-align: right;
-  }
-
-  @media (max-width: 600px) {
-    .chat-container {
-      width: 90%;
-    }
-    .chat-body{
-        flex-direction: column;
-    }
-  }
-
-  .option-box{
-    padding: 0.7rem 0.2rem;
-    display: flex;
-    flex-direction: column;
-    width: 97%;
-    border: 0.5px solid gray;
-  }
-
-  .category-box button{
-    margin: 0.2rem 0.5rem;
-    background: black;
-    color: white;
-    padding: 0.2rem 0.5rem;
-    width: 100%;
-  }
-
-  @media (max-width : 800px) {
-    .chat-body{
-      width: 90%;
-    }
-  }
+}
