@@ -76,7 +76,7 @@ body {
   grid-area: sidebar;
   height: 100%;
   background-color: #21232d;
-  color: #9799ab;
+  color: #ffffff;
   overflow-y: auto;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
@@ -107,7 +107,7 @@ body {
 }
 
 .sidebar-list-item {
-  padding: 20px 20px 20px 20px;
+  padding: 10px 20px 20px 20px;
 }
 
 .sidebar-list-item:hover {
@@ -117,7 +117,7 @@ body {
 
 .sidebar-list-item>a {
   text-decoration: none;
-  color: #9799ab;
+  color: #e1e1e1;
 }
 
 .sidebar-responsive {
@@ -245,7 +245,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #1c1c1c;
+  background-color: #e0e0e0;
   border-radius: 10px;
 }
 
@@ -264,6 +264,11 @@ body {
 
 /* Medium <= 992px */
 @media screen and (max-width: 992px) {
+  .sidebar-brand {
+    margin-top: 0px;
+    font-size: 15px;
+    font-weight: 700;
+  }
   .grid-container {
     grid-template-columns: 1fr;
     grid-template-rows: 0.2fr 3fr;

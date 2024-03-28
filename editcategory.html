@@ -63,39 +63,55 @@
 
       <main class="main-container">
         <div class="chat-container">
-            <h1 class="logo">GENNI</h1>
-            <div class="chat-body">
-                <div class="message">
-                    <label for="Category Name">category Name:</label>
-                    <input type="text" id="categoryName" name="categoryName" required>
-                  </div>
-              <div class="message">
-                <label for="slogan">slogan:</label>
-                <input type="text" id="slogan" name="slogan" required>
-              </div>
+          <h1 class="logo">GENNI</h1>
+          <div class="chat-body">
+            <div class="message">
+              <label for="Category Name">category Name:</label>
+              <input type="text" id="categoryName" name="categoryName" required>
+            </div>
+            <div class="message">
+              <label for="slogan">slogan:</label>
+              <input type="text" id="slogan" name="slogan" required>
+            </div>
         
-              <div class="message">
-                <label for="FeatureImage">Feature Imaga:</label>
-                <input
-                    type="file"
-                    id="image"
-                    name="image"
-                    accept="image/*"
-                    required
-                  />
-              </div>
+            <div class="message">
+              <label for="FeatureImage">Feature Image:</label>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                required
+                onchange="previewImage(this)"
+              />
+              <img id="imagePreview" class="showuploadedimage" >
             </div>
-            <div class="chat-footer">
-              <!-- Add any additional content or buttons here -->
-              <button class="send-button" type="submit">save Changes</button>
-            </div>
-            <a href="index.html">Back to Dashboard</a>
           </div>
+          <div class="chat-footer">
+            <!-- Add any additional content or buttons here -->
+            <button class="send-button" type="submit">Save Changes</button>
+          </div>
+        </div>
       </main>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
     <!-- Custom JS -->
     <script src="Adminpanel.js"></script>
+    <script>
+      function previewImage(input) {
+        const imagePreview = document.getElementById("imagePreview");
+        if (input.files && input.files[0]) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            imagePreview.src = e.target.result;
+            imagePreview.style.display = "inline"; // Show the image when uploaded
+          };
+          reader.readAsDataURL(input.files[0]);
+        } else {
+          imagePreview.style.display = "none"; // Hide the image when no file is selected
+        }
+      }
+    </script>
   </body>
 </html>

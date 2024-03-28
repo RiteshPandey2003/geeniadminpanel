@@ -37,3 +37,4 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".edit-form:nth-of-type(3)").style.display =
       "none";
   }
+
