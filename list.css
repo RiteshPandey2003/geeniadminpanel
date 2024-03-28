@@ -149,12 +149,13 @@ body {
 .list-item1 p {
     flex: 1;
     padding: 8px;
-    margin-right: 10px;
+    margin-right: 20px;
     border-radius: 5px;
     min-width: 100px;
     color: black;
     font-size: 1rem;
     font-weight: 600;
+
 }
 
 .list-item button {
@@ -211,11 +212,11 @@ body {
 }
 
 .heading-section button {
-    padding: 8px 3rem;
-    background-color: rgb(255, 255, 255);
+    padding: 5px 1rem;
+    background-color: rgb(212, 242, 255);
     color: #000000;
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
     cursor: pointer;
     margin-right: 0.5rem;
     font-size: 1rem;

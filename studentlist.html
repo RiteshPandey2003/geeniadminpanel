@@ -24,25 +24,13 @@
         <div class="menu-icon" onclick="openSidebar()">
           <span class="material-icons-outlined">menu</span>
         </div>
-        <div class="header-left">
-          <input
-            type="search"
-            id="searchInput"
-            placeholder="Search"
-            class="search-box"
-            onkeyup="searchStudents()"
-          />
-          <span class="material-icons-outlined">search</span>
-        </div>
+        <div class="sidebar-brand">GENNI</div>
       </header>
       <!-- End Header -->
 
       <!-- Sidebar -->
       <aside id="sidebar">
         <div class="sidebar-title">
-          <div class="sidebar-brand">
-            <span class="material-icons-outlined">inventory</span> GENNI
-          </div>
           <span class="material-icons-outlined" onclick="closeSidebar()"
             >close</span
           >
@@ -50,13 +38,10 @@
 
         <ul class="sidebar-list">
           <li class="sidebar-list-item">
-            <a href="index.html" target="_blank"> Dashboard </a>
-          </li>
-          <li class="sidebar-list-item">
             <a href="studentlist.html" target="_blank"> Students </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="VerifiedSudent.html" target="_blank"> Verication Details </a>
+            <a href="VerifiedSudent.html" target="_blank"> Registration </a>
           </li>
           <li class="sidebar-list-item">
             <a href="CourseList.html" target="_blank"> Courses </a>
@@ -65,7 +50,7 @@
             <a href="BranchList.html" target="_blank"> Bracnhes </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="contactdetails.html" target="_blank"> contact Details </a>
+            <a href="contactdetails.html" target="_blank"> Extra Details </a>
           </li>
         </ul>
       </aside>
@@ -75,6 +60,16 @@
         <div class="list-container student-list">
           <div class="heading-section">
             <p class="text-primary1">Students Details</p>
+            <div class="header-left">
+              <input
+                type="search"
+                id="searchInput"
+                placeholder="Search"
+                class="search-box"
+                onkeyup="searchStudents()"
+              />
+              <span class="material-icons-outlined">search</span>
+            </div>
           </div>
           <div class="list-item">
             <p>Reg no</p>
@@ -131,7 +126,7 @@
         // Simulate AJAX call delay
         setTimeout(() => {
           callback(studentsData);
-        }, 1000); // 1 second delay
+        }, 500); // 1 second delay
       }
 
       // Function to display students
@@ -149,8 +144,8 @@
           <p>${student.course}</p>
           <p>${student.branch}</p>
           <p>${student.issueDate}</p>
-          <button class="Add-button1" id="update">Update</button>
-          <button class="Add-button1" id="remove">Remove</button>
+          <a href="studentEdit.html"><button class="Add-button1" id="update">Update</button></a>
+          <a><button class="Add-button1" id="remove">Remove</button></a>
               `;
           studentList.appendChild(listItem);
         });

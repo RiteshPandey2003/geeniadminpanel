@@ -1,191 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Admin Dashboard</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+    rel="stylesheet"
+  />
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="Adminpanel.css" />
-    <link rel="stylesheet" href="list.css" />
-  </head>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="Adminpanel.css" />
+  <link rel="stylesheet" href="list.css" />
+</head>
 
-  <body>
-    <div class="grid-container">
-      <header class="header">
-        <div class="menu-icon" onclick="openSidebar()">
-          <span class="material-icons-outlined">menu</span>
+<body>
+  <div class="grid-container">
+    <header class="header">
+      <div class="menu-icon" onclick="openSidebar()">
+        <span class="material-icons-outlined">menu</span>
+      </div>
+      <div class="sidebar-brand">
+          <span class="material-icons-outlined"></span> GENNI
         </div>
-        <div class="header-left">
-          <input type="search" placeholder="Search" class="search-box" />
-          <span class="material-icons-outlined">search</span>
-        </div>
-      </header>
-      <!-- End Header -->
+    </header>
+    <!-- End Header -->
 
-      <!-- Sidebar -->
-      <aside id="sidebar">
-        <div class="sidebar-title">
-          <div class="sidebar-brand">
-            <span class="material-icons-outlined">inventory</span> GENNI
-          </div>
-          <span class="material-icons-outlined" onclick="closeSidebar()"
-            >close</span
-          >
-        </div>
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div class="sidebar-title">
 
-        <ul class="sidebar-list">
-          <li class="sidebar-list-item">
-            <a href="index.html" target="_blank"> Dashboard </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="studentlist.html" target="_blank"> Students </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="VerifiedSudent.html" target="_blank"> Verication Details </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="CourseList.html" target="_blank"> Courses </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="BranchList.html" target="_blank"> Bracnhes </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="contactdetails.html" target="_blank"> Contact Details </a>
-          </li>
-        </ul>
-      </aside>
+        <span class="material-icons-outlined" onclick="closeSidebar()"
+          >close</span
+        >
+      </div>
 
-      <main class="main-container">
-        <div class="list-container student-list">
-          <div class="heading-section">
-            <p class="text-primary1">Branch Details</p>
+      <ul class="sidebar-list">
+        <li class="sidebar-list-item">
+          <a href="studentlist.html" target="_blank"> Students </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="VerifiedSudent.html" target="_blank"> Registration </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="CourseList.html" target="_blank"> Courses </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="BranchList.html" target="_blank"> Bracnhes </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="contactdetails.html" target="_blank"> Contact Details </a>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="main-container">
+      <div class="list-container student-list">
+        <div class="heading-section">
+          <p class="text-primary1">Branch Details</p>
+          <div class="header-left">
             <button onclick="openBranchForm();">+ADD</button>
-          </div>
-          <div class="list-item">
-            <p>Head Image</p>
-            <p>Head Name</p>
-            <p>Branch Name</p>
-            <p>Branch Contact</p>
-            <p>Branch Email</p>
-            <p>Branch Address</p>
-
-            <button class="Add-button1" id="update">Action</button>
-            <button class="Add-button1" id="remove">Action</button>
-          </div>
-          <div class="list-box">
-
-
-            <div class="list-item1">
-              <p>
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVGD4mySV7ZqD6mF27LQToijGDpqFCfTocJQ&usqp=CAU"
-                />
-              </p>
-              <p>Narendra</p>
-              <p>Hyderabad Branch</p>
-              <p>7979781510</p>
-              <p>mr.reddy@gamil.com</p>
-              <p>bassireddy, pulvindual, AP</p>
-
-              <a href="Branchedit.html" ><button class="Add-button1" id="update">
-                Update
-              </button></a>
-              <button class="Add-button1" id="remove">Remove</button>
-            </div>
-            
-          </div>
-        </div>
-
-        <!-- form -->
-        <div class="edit-form" style="display: none">
-          <!-- Your branch form content goes here -->
-          <div class="input-field">
-            <label for="edit-name">Branch-Name:</label>
-            <input type="text" id="edit-name" />
-          </div>
-          <div class="input-field">
-            <label for="edit-course">Head-Name:</label>
-            <input type="text" id="edit-course" />
-          </div>
-          <div class="input-field">
-            <label for="edit-date">Head-image:</label>
             <input
-                type="file"
-                id="image"
-                name="image"
-                accept="image/*"
-                required
-                onchange="previewImage(event)"
+              type="search"
+              id="searchInput"
+              placeholder="Search"
+              class="search-box"
+              onkeyup="searchBranches()"
             />
-            <img id="headImagePreview" class="showuploadedimage" />
+            <span class="material-icons-outlined">search</span>
+          </div>
         </div>
-          <div class="input-field">
-            <label for="edit-rollno">Contact:</label>
-            <input type="text" id="edit-rollno" />
-          </div>
-          <div class="input-field">
-            <label for="edit-address">Address:</label>
-            <input type="text" id="edit-address" />
-          </div>
-          <div class="input-field">
-            <label for="edit-email">Email:</label>
-            <input type="text" id="edit-email" />
-          </div>
-          <button type="button" onclick="saveChanges()">Save Changes</button>
-          <button class="button" onclick="closeBranchForm()">Close</button>
+        <div class="list-item">
+          <p>Head Image</p>
+          <p>Head Name</p>
+          <p>Branch Name</p>
+          <p>Branch Contact</p>
+          <p>Branch Email</p>
+          <p>Branch Address</p>
+
+          <button class="Add-button1" id="update">Action</button>
+          <button class="Add-button1" id="remove">Action</button>
         </div>
-      </main>
-    </div>
+        <div class="list-box" id="branchList">
+          <!-- Branch details will be displayed here -->
+        </div>
+      </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
-    <!-- Custom JS -->
-    <script src="Adminpanel.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var hasFormBeenOpened = localStorage.getItem("formOpened");
-        if (!hasFormBeenOpened) {
-          openBranchForm();
-          localStorage.setItem("formOpened", true);
-        }
-      });
+      <!-- form -->
+      <div class="edit-form" style="display: none">
+        <!-- Your branch form content goes here -->
+        <div class="input-field">
+          <label for="edit-name">Branch-Name:</label>
+          <input type="text" id="edit-name" />
+        </div>
+        <div class="input-field">
+          <label for="edit-course">Head-Name:</label>
+          <input type="text" id="edit-course" />
+        </div>
+        <div class="input-field">
+          <label for="edit-date">Head-image:</label>
+          <input
+              type="file"
+              id="image"
+              name="image"
+              accept="image/*"
+              required
+              onchange="previewImage(event)"
+          />
+          <img id="headImagePreview" class="showuploadedimage" />
+      </div>
+        <div class="input-field">
+          <label for="edit-rollno">Contact:</label>
+          <input type="text" id="edit-rollno" />
+        </div>
+        <div class="input-field">
+          <label for="edit-address">Address:</label>
+          <input type="text" id="edit-address" />
+        </div>
+        <div class="input-field">
+          <label for="edit-email">Email:</label>
+          <input type="text" id="edit-email" />
+        </div>
+        <button type="button" onclick="saveChanges()">Save Changes</button>
+        <button class="button" onclick="closeBranchForm()">Close</button>
+      </div>
+    </main>
+  </div>
 
-      function openBranchForm() {
-        document.querySelector(".edit-form").style.display = "block";
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+  <!-- Custom JS -->
+  <script src="Adminpanel.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var hasFormBeenOpened = localStorage.getItem("formOpened");
+      if (!hasFormBeenOpened) {
+        openBranchForm();
+        localStorage.setItem("formOpened", true);
       }
+    });
 
-      function saveChanges() {
-        document.querySelector(".edit-form:visible").style.display = "none";
-      }
-
-      function closeBranchForm() {
-        document.querySelector(".edit-form").style.display = "none";
-      }
-
-      function previewImage(event) {
-        const imagePreview = document.getElementById("headImagePreview");
-        const file = event.target.files[0];
-        const reader = new FileReader();
-
-        reader.onload = function () {
-            imagePreview.src = reader.result;
-            imagePreview.style.display = "block"; // Show the image when uploaded
-        };
-
-        if (file) {
-            reader.readAsDataURL(file);
-        } else {
-            imagePreview.style.display = "none"; // Hide the image when no file is selected
-        }
+    function openBranchForm() {
+      document.querySelector(".edit-form").style.display = "block";
     }
-    </script>
-  </body>
+
+    function saveChanges() {
+      document.querySelector(".edit-form:visible").style.display = "none";
+    }
+
+    function closeBranchForm() {
+      document.querySelector(".edit-form").style.display = "none";
+    }
+
+    function previewImage(event) {
+      const imagePreview = document.getElementById("headImagePreview");
+      const file = event.target.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function () {
+          imagePreview.src = reader.result;
+          imagePreview.style.display = "block"; // Show the image when uploaded
+      };
+
+      if (file) {
+          reader.readAsDataURL(file);
+      } else {
+          imagePreview.style.display = "none"; // Hide the image when no file is selected
+      }
+  }
+  </script>
+  <script>
+    // Function to fetch branch data from the server
+    function fetchBranches(callback) {
+      // Simulated branch data
+      const branchesData = [
+        {
+          headImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVGD4mySV7ZqD6mF27LQToijGDpqFCfTocJQ&usqp=CAU",
+          headName: "Narendra",
+          branchName: "Hyderabad Branch",
+          branchContact: "7979781510",
+          branchEmail: "mr.reddy@gamil.com",
+          branchAddress: "bassireddy, pulvindual, AP"
+        },
+        {
+          headImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVGD4mySV7ZqD6mF27LQToijGDpqFCfTocJQ&usqp=CAU",
+          headName: "Kiran",
+          branchName: "Chennai Branch",
+          branchContact: "9876543210",
+          branchEmail: "kiran.chennai@gamil.com",
+          branchAddress: "ABC Street, Chennai, TN"
+        },
+        {
+          headImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVGD4mySV7ZqD6mF27LQToijGDpqFCfTocJQ&usqp=CAU",
+          headName: "Rajesh",
+          branchName: "Mumbai Branch",
+          branchContact: "8765432109",
+          branchEmail: "rajesh.mumbai@gamil.com",
+          branchAddress: "XYZ Road, Mumbai, MH"
+        }
+      ];
+      // Simulate AJAX call delay
+      setTimeout(() => {
+        callback(branchesData);
+      }, 500); // 0.5 second delay
+    }
+
+    // Function to display branches
+    function displayBranches(branchData) {
+      const branchList = document.getElementById("branchList");
+      branchList.innerHTML = ""; // Clear previous list
+      branchData.forEach((branch) => {
+        const listItem = document.createElement("div");
+        listItem.classList.add("list-item1");
+        listItem.innerHTML = `
+          <p><img src="${branch.headImage}" /></p>
+          <p>${branch.headName}</p>
+          <p>${branch.branchName}</p>
+          <p>${branch.branchContact}</p>
+          <p>${branch.branchEmail}</p>
+          <p>${branch.branchAddress}</p>
+          <a href="Branchedit.html"> <button class="Add-button1" id="update">Update</button></a>
+          <a><button class="Add-button1" id="remove">Remove</button></a>
+        `;
+        branchList.appendChild(listItem);
+      });
+    }
+
+    // Function to filter branches based on search query
+    function searchBranches() {
+      const searchQuery = document
+        .getElementById("searchInput")
+        .value.toLowerCase();
+      fetchBranches((branchesData) => {
+        const filteredBranches = branchesData.filter((branch) =>
+          branch.headName.toLowerCase().includes(searchQuery) ||
+          branch.branchName.toLowerCase().includes(searchQuery) ||
+          branch.branchContact.includes(searchQuery) ||
+          branch.branchEmail.toLowerCase().includes(searchQuery) ||
+          branch.branchAddress.toLowerCase().includes(searchQuery)
+        );
+        displayBranches(filteredBranches);
+      });
+    }
+
+    // Initial fetch of branch data
+    fetchBranches(displayBranches);
+  </script>
+</body>
 </html>

@@ -24,9 +24,8 @@
         <div class="menu-icon" onclick="openSidebar()">
           <span class="material-icons-outlined">menu</span>
         </div>
-        <div class="header-left">
-          <input type="search" placeholder="Search" class="search-box" />
-          <span class="material-icons-outlined">search</span>
+        <div class="sidebar-brand">
+          <span class="material-icons-outlined"></span> GENNI
         </div>
       </header>
       <!-- End Header -->
@@ -34,23 +33,18 @@
       <!-- Sidebar -->
       <aside id="sidebar">
         <div class="sidebar-title">
-          <div class="sidebar-brand">
-            <span class="material-icons-outlined">inventory</span> GENNI
-          </div>
           <span class="material-icons-outlined" onclick="closeSidebar()"
             >close</span
           >
         </div>
 
         <ul class="sidebar-list">
-          <li class="sidebar-list-item">
-            <a href="index.html" target="_blank"> Dashboard </a>
-          </li>
+
           <li class="sidebar-list-item">
             <a href="studentlist.html" target="_blank"> Students </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="VerifiedSudent.html" target="_blank"> Verication Details </a>
+            <a href="VerifiedSudent.html" target="_blank"> Registration </a>
           </li>
           <li class="sidebar-list-item">
             <a href="CourseList.html" target="_blank"> Courses </a>
@@ -59,39 +53,85 @@
             <a href="BranchList.html" target="_blank"> Bracnhes </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="contactdetails.html" target="_blank"> Contact Details </a>
+            <a href="contactdetails.html" target="_blank"> Extra Details </a>
           </li>
         </ul>
       </aside>
 
       <main class="main-container">
         <div class="chat-container">
-            <h1 class="logo">GENNI</h1>
-            <div class="chat-body">
-                <div class="message">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                  </div>
-              <div class="message">
-                <label for="Mobile">Mobile No:</label>
-                <input type="text" id="Mobile" name="Mobile" required>
-              </div>
-        
-              <div class="message">
-                <label for="FeatureImage">Address:</label>
-                <input type="Address" id="Address" name="Address" required>
-              </div>
+          <div class="chat-body">
+            <div class="message">
+              <label for="icon">Icon:</label>
+              <input
+                type="file"
+                id="icon"
+                name="icon"
+                accept="image/*"
+                onchange="previewIcon(event)"
+                required
+              />
+              <img id="iconPreview" class="preview-image" />
             </div>
-            <div class="chat-footer">
-              <!-- Add any additional content or buttons here -->
-              <button class="send-button" type="submit">submit</button>
+            <div class="message">
+              <label for="logo">Logo:</label>
+              <input
+                type="file"
+                id="logo"
+                name="logo"
+                accept="image/*"
+                onchange="previewLogo(event)"
+                required
+              />
+              <img id="logoPreview" class="preview-image" />
             </div>
           </div>
+          <div class="chat-footer">
+            <!-- Add any additional content or buttons here -->
+            <button class="send-button" type="submit">submit</button>
+          </div>
+        </div>
       </main>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
     <!-- Custom JS -->
     <script src="Adminpanel.js"></script>
+
+    <script>
+      function previewIcon(event) {
+        const iconPreview = document.getElementById("iconPreview");
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function () {
+          iconPreview.src = reader.result;
+          iconPreview.style.display = "block"; // Show the image when uploaded
+        };
+
+        if (file) {
+          reader.readAsDataURL(file);
+        } else {
+          iconPreview.style.display = "none"; // Hide the image when no file is selected
+        }
+      }
+
+      function previewLogo(event) {
+        const logoPreview = document.getElementById("logoPreview");
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function () {
+          logoPreview.src = reader.result;
+          logoPreview.style.display = "block"; // Show the image when uploaded
+        };
+
+        if (file) {
+          reader.readAsDataURL(file);
+        } else {
+          logoPreview.style.display = "none"; // Hide the image when no file is selected
+        }
+      }
+    </script>
   </body>
 </html>
