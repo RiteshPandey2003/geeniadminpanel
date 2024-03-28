@@ -50,6 +50,9 @@
             <a href="studentlist.html" target="_blank"> Students </a>
           </li>
           <li class="sidebar-list-item">
+            <a href="VerifiedSudent.html" target="_blank"> Verication Details </a>
+          </li>
+          <li class="sidebar-list-item">
             <a href="CourseList.html" target="_blank"> Courses </a>
           </li>
           <li class="sidebar-list-item">
@@ -65,20 +68,28 @@
         <div class="list-container student-list">
           <div class="heading-section">
             <p class="text-primary1">Branch Details</p>
-            <button onclick="openBranchForm();">add +</button>
+            <button onclick="openBranchForm();">+ADD</button>
+          </div>
+          <div class="list-item">
+            <p>Head Image</p>
+            <p>Head Name</p>
+            <p>Branch Name</p>
+            <p>Branch Contact</p>
+            <p>Branch Email</p>
+            <p>Branch Address</p>
+
+            <button class="Add-button1" id="update">Action</button>
+            <button class="Add-button1" id="remove">Action</button>
           </div>
           <div class="list-box">
-            <div class="list-item">
-              <p>Head Name</p>
-              <p>Branch Name</p>
-              <p>Branch Contact</p>
-              <p>Branch Email</p>
-              <p>Branch Address</p>
-              <button class="Add-button1" id="update">Update</button>
-              <button class="Add-button1" id="remove">Remove</button>
-            </div>
+
 
             <div class="list-item1">
+              <p>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVGD4mySV7ZqD6mF27LQToijGDpqFCfTocJQ&usqp=CAU"
+                />
+              </p>
               <p>Narendra</p>
               <p>Hyderabad Branch</p>
               <p>7979781510</p>
@@ -90,6 +101,7 @@
               </button></a>
               <button class="Add-button1" id="remove">Remove</button>
             </div>
+            
           </div>
         </div>
 
@@ -107,13 +119,15 @@
           <div class="input-field">
             <label for="edit-date">Head-image:</label>
             <input
-              type="file"
-              id="image"
-              name="image"
-              accept="image/*"
-              required
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                required
+                onchange="previewImage(event)"
             />
-          </div>
+            <img id="headImagePreview" class="showuploadedimage" />
+        </div>
           <div class="input-field">
             <label for="edit-rollno">Contact:</label>
             <input type="text" id="edit-rollno" />
@@ -155,6 +169,23 @@
       function closeBranchForm() {
         document.querySelector(".edit-form").style.display = "none";
       }
+
+      function previewImage(event) {
+        const imagePreview = document.getElementById("headImagePreview");
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function () {
+            imagePreview.src = reader.result;
+            imagePreview.style.display = "block"; // Show the image when uploaded
+        };
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            imagePreview.style.display = "none"; // Hide the image when no file is selected
+        }
+    }
     </script>
   </body>
 </html>

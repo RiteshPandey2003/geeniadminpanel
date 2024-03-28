@@ -25,7 +25,13 @@
           <span class="material-icons-outlined">menu</span>
         </div>
         <div class="header-left">
-          <input type="search" placeholder="Search" class="search-box"/>
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search"
+            class="search-box"
+            onkeyup="searchStudents()"
+          />
           <span class="material-icons-outlined">search</span>
         </div>
       </header>
@@ -50,6 +56,9 @@
             <a href="studentlist.html" target="_blank"> Students </a>
           </li>
           <li class="sidebar-list-item">
+            <a href="VerifiedSudent.html" target="_blank"> Verication Details </a>
+          </li>
+          <li class="sidebar-list-item">
             <a href="CourseList.html" target="_blank"> Courses </a>
           </li>
           <li class="sidebar-list-item">
@@ -63,68 +72,24 @@
 
       <main class="main-container">
         <!-- course list -->
-    <div class="list-container student-list">
+        <div class="list-container student-list">
           <div class="heading-section">
             <p class="text-primary1">Students Details</p>
-            <button onclick="openStudentForm()">+ADD</button>
           </div>
-          <div class="list-box">
-            <div class="list-item">
-              <p>Name</p>
-              <p>Reg no</p>
-              <p>S/O</p>
-              <p>Course</p>
-              <p>Branch</p>
-              <p>Ceritficate Issue</p>
-              <button class="Add-button1" id="update">Update</button>
-              <button class="Add-button1" id="remove">Remove</button>
-            </div>
-  
-            <div class="list-item1">
-              <p>Ram</p>
-              <p>12345</p>
-              <p>Raj Kiram</p>
-              <p>English</p>
-              <p>Hyderabad</p>
-              <p>13-jan-2022</p>
-              <a href="courseEdit.html"
-              ><button class="Add-button1" id="update">Update</button></a
-            >
-            <button class="Add-button1" id="remove">Remove</button>
+          <div class="list-item">
+            <p>Reg no</p>
+            <p>Name</p>
+            <p>fatherName</p>
+            <p>Course</p>
+            <p>Branch</p>
+            <p>Certificate Issue</p>
+            <button class="Add-button1" id="update">Action</button>
+            <button class="Add-button1" id="remove">Action</button>
           </div>
-            </div>
+          <div class="list-box" id="studentList">
+            <!-- Student details will be displayed here -->
           </div>
-      </div>
-  
-      <!-- student form -->
-      <div class="edit-form" style="display: none">
-          <div class="input-field">
-            <label for="student-name">Student Name:</label>
-            <input type="text" id="student-name" />
-          </div>
-          <div class="input-field">
-            <label for="student-regno">Registration No:</label>
-            <input type="text" id="student-regno" />
-          </div>
-          <div class="input-field">
-            <label for="student-so">S/O:</label>
-            <input type="text" id="student-so" />
-          </div>
-          <div class="input-field">
-            <label for="student-course">Course:</label>
-            <input type="text" id="student-course" />
-          </div>
-          <div class="input-field">
-            <label for="student-branch">Branch:</label>
-            <input type="text" id="student-branch" />
-          </div>
-          <div class="input-field">
-            <label for="certificate-issue">Certificate Issue Date:</label>
-            <input type="text" id="certificate-issue" />
-          </div>
-          <button type="button" onclick="saveChanges()">Save Changes</button>
-          <button class="close-form" onclick="closeStudentForm()">Close</button>
-      </div>
+        </div>
       </main>
     </div>
 
@@ -132,25 +97,82 @@
     <!-- Custom JS -->
     <script src="Adminpanel.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          var hasFormBeenOpened = localStorage.getItem("formOpened");
-          if (!hasFormBeenOpened) {
-            openStudentForm(); // Corrected function name
-            localStorage.setItem("formOpened", true);
-          }
-        });
+      // Function to fetch student data from the server
+      function fetchStudents(callback) {
+        // Simulated student data
+        const studentsData = [
+          {
+           
+            regNo: "12345",
+            name: "Ram",
+            fatherName: "Raj Kiram",
+            course: "English",
+            branch: "Hyderabad",
+            issueDate: "13-jan-2022",
+          },
+          {
+            regNo: "12346",
+            name: "Shyam",
+            fatherName: "Krishna Kiram",
+            course: "Mathematics",
+            branch: "Chennai",
+            issueDate: "14-jan-2022",
+          },
+          {
+            
+            regNo: "12347",
+            name: "Gopal",
+            fatherName: "Vishnu Kiram",
+            course: "Science",
+            branch: "Mumbai",
+            issueDate: "15-jan-2022",
+          },
+        ];
+        // Simulate AJAX call delay
+        setTimeout(() => {
+          callback(studentsData);
+        }, 1000); // 1 second delay
+      }
 
-        function openStudentForm() {
-          document.querySelector(".edit-form").style.display = "block";
-        }
-  
-        function saveChanges() {
-          document.querySelector(".edit-form").style.display = "none";
-        }
-  
-        function closeStudentForm() {
-          document.querySelector(".edit-form").style.display = "none";
-        }
+      // Function to display students
+      function displayStudents(studentData) {
+        const studentList = document.getElementById("studentList");
+        studentList.innerHTML = ""; // Clear previous list
+        studentData.forEach((student) => {
+          const listItem = document.createElement("div");
+          listItem.classList.add("list-item1");
+          listItem.innerHTML = `
+             
+          <p>${student.regNo}</p>
+          <p>${student.name}</p>
+          <p>${student.fatherName}</p>
+          <p>${student.course}</p>
+          <p>${student.branch}</p>
+          <p>${student.issueDate}</p>
+          <button class="Add-button1" id="update">Update</button>
+          <button class="Add-button1" id="remove">Remove</button>
+              `;
+          studentList.appendChild(listItem);
+        });
+      }
+
+      // Function to filter students based on search query
+      function searchStudents() {
+        const searchQuery = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        fetchStudents((studentsData) => {
+          const filteredStudents = studentsData.filter(
+            (student) =>
+              student.name.toLowerCase().includes(searchQuery) ||
+              student.regNo.toLowerCase().includes(searchQuery)
+          );
+          displayStudents(filteredStudents);
+        });
+      }
+
+      // Initial fetch of student data
+      fetchStudents(displayStudents);
     </script>
   </body>
 </html>

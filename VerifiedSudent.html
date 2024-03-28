@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="Adminpanel.css" />
+    <link rel="stylesheet" href="list.css" />
+</head>
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <input type="search" id="searchInput" placeholder="Search" class="search-box" onkeyup="searchStudents()">
+                <span class="material-icons-outlined">search</span>
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <span class="material-icons-outlined">inventory</span> GENNI
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item">
+                    <a href="index.html" target="_blank">Dashboard</a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="studentlist.html" target="_blank">Students</a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="VerifiedSudent.html" target="_blank"> Verication Details </a>
+                  </li>
+                <li class="sidebar-list-item">
+                    <a href="CourseList.html" target="_blank">Courses</a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="BranchList.html" target="_blank">Branches</a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="contactdetails.html" target="_blank">Contact Details</a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-container">
+            <!-- course list -->
+            <div class="list-container student-list">
+                <div class="heading-section">
+                    <p class="text-primary1">Verified Students</p>
+                </div>
+                <div class="list-item">
+                    <p>Reg no</p>
+                    <p>Name</p>
+                    <p>Email</p>
+                    <p>Date of Birth</p>
+                  </div>
+                <div class="list-box" id="studentList">
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function fetchStudents(callback) {
+            const studentsData = [
+                { regNo: "12345", name: "Narendra", email: "narendra@example.com", dob: "13-jan-2022" },
+                { regNo: "12346", name: "Raj", email: "raj@example.com", dob: "14-jan-2022" },
+                { regNo: "12347", name: "Kumar", email: "kumar@example.com", dob: "15-jan-2022" }
+            ];
+            setTimeout(() => {
+                callback(studentsData);
+            }, 1000); 
+        }
+        function displayStudents(studentData) {
+            const studentList = document.getElementById("studentList");
+            studentList.innerHTML = ""; 
+
+            studentData.forEach(student => {
+                const listItem = document.createElement("div");
+                listItem.classList.add("list-item1");
+                listItem.innerHTML = `
+                    <p>${student.regNo}</p>
+                    <p>${student.name}</p>
+                    <p>${student.email}</p>
+                    <p>${student.dob}</p>
+                `;
+                studentList.appendChild(listItem);
+            });
+        }
+        function searchStudents() {
+            const searchQuery = document.getElementById("searchInput").value.toLowerCase();
+            fetchStudents((studentsData) => {
+                const filteredStudents = studentsData.filter(student =>
+                    student.name.toLowerCase().includes(searchQuery) ||
+                    student.regNo.toLowerCase().includes(searchQuery) 
+                );
+                displayStudents(filteredStudents);
+            });
+        }
+
+        // Initial fetch of student data
+        fetchStudents(displayStudents);
+    </script>
+
+    
+</body>
+</html>
