@@ -15,7 +15,6 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="Adminpanel.css" />
-    <link rel="stylesheet" href="editform.css" />
   </head>
 
   <body>
@@ -24,8 +23,9 @@
         <div class="menu-icon" onclick="openSidebar()">
           <span class="material-icons-outlined">menu</span>
         </div>
-        <div class="sidebar-brand">
-          <span class="material-icons-outlined"></span> GENNI
+        <div class="header-left">
+          <input type="search" placeholder="Search" class="search-box" />
+          <span class="material-icons-outlined">search</span>
         </div>
       </header>
       <!-- End Header -->
@@ -33,19 +33,23 @@
       <!-- Sidebar -->
       <aside id="sidebar">
         <div class="sidebar-title">
-
+          <div class="sidebar-brand">
+            <span class="material-icons-outlined">inventory</span> GENNI
+          </div>
           <span class="material-icons-outlined" onclick="closeSidebar()"
             >close</span
           >
         </div>
 
         <ul class="sidebar-list">
-
+          <li class="sidebar-list-item">
+            <a href="index.html" target="_blank"> Dashboard </a>
+          </li>
           <li class="sidebar-list-item">
             <a href="studentlist.html" target="_blank"> Students </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="VerifiedSudent.html" target="_blank"> Registration </a>
+            <a href="VerifiedSudent.html" target="_blank"> Verication Details </a>
           </li>
           <li class="sidebar-list-item">
             <a href="CourseList.html" target="_blank"> Courses </a>
@@ -54,39 +58,48 @@
             <a href="BranchList.html" target="_blank"> Bracnhes </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="contactdetails.html" target="_blank"> Extra Details </a>
+            <a href="contactdetails.html" target="_blank"> Contact Details </a>
           </li>
         </ul>
       </aside>
 
       <main class="main-container">
-        <div class="chat-container">
-          <div class="chat-body">
-            <div class="message">
-              <label for="Category Name">category Name:</label>
-              <input type="text" id="categoryName" name="categoryName" required>
+        <div class="main-title">
+          <p class="font-weight-bold">DASHBOARD</p>
+        </div>
+
+        <div class="main-cards">
+          <div class="card">
+            <div class="card-inner">
+              <p class="text-primary">COURSES</p>
             </div>
-            <div class="message">
-              <label for="slogan">slogan:</label>
-              <input type="text" id="slogan" name="slogan" required>
-            </div>
-        
-            <div class="message">
-              <label for="FeatureImage">Feature Image:</label>
-              <input
-                type="file"
-                id="image"
-                name="image"
-                accept="image/*"
-                required
-                onchange="previewImage(this)"
-              />
-              <img id="imagePreview" class="showuploadedimage" >
-            </div>
+            <span class="text-primary font-weight-bold">249</span>
           </div>
-          <div class="chat-footer">
-            <!-- Add any additional content or buttons here -->
-            <button class="send-button" type="submit">Save Changes</button>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="text-primary">BRANCHES</p>
+            </div>
+            <span class="text-primary font-weight-bold">79</span>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="text-primary">TOTAL STUDENTS</p>
+            </div>
+            <span class="text-primary font-weight-bold">556</span>
+          </div>
+        </div>
+
+        <div class="charts">
+          <div class="charts-card">
+            <p class="chart-title">Most Register Courses</p>
+            <div id="bar-chart"></div>
+          </div>
+
+          <div class="charts-card">
+            <p class="chart-title">top selling Months</p>
+            <div id="area-chart"></div>
           </div>
         </div>
       </main>
@@ -95,20 +108,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
     <!-- Custom JS -->
     <script src="Adminpanel.js"></script>
-    <script>
-      function previewImage(input) {
-        const imagePreview = document.getElementById("imagePreview");
-        if (input.files && input.files[0]) {
-          const reader = new FileReader();
-          reader.onload = function (e) {
-            imagePreview.src = e.target.result;
-            imagePreview.style.display = "inline"; // Show the image when uploaded
-          };
-          reader.readAsDataURL(input.files[0]);
-        } else {
-          imagePreview.style.display = "none"; // Hide the image when no file is selected
-        }
-      }
-    </script>
   </body>
 </html>
